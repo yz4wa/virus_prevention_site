@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#080d1b">
+  <title>Malware | Cybersecurity Guide</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+  <style>
+    :root{--bg:#080d1b;--panel:#101a30;--panel2:#14213b;--cyan:#54f4e8;--blue:#6b8cff;--pink:#ff5ca8;--muted:#a9b8d2}
+    *{scroll-margin-top:88px}
+    body{background:radial-gradient(ellipse at 15% 0%,#17264a 0,transparent 36%),var(--bg);color:#edf4ff;font-family:system-ui,-apple-system,"Segoe UI",sans-serif}
+    .navbar{background:rgba(7,12,26,.88);backdrop-filter:blur(14px);border-bottom:1px solid #263754}
+    .navbar-brand{font-weight:800;letter-spacing:.08em;color:var(--cyan)!important}
+    .nav-link{color:#c3d1e9!important}.nav-link:hover{color:var(--cyan)!important}
+    .hero{min-height:76vh;display:flex;align-items:center;padding:7rem 0 5rem}
+    .eyebrow{color:var(--cyan);letter-spacing:.22em;text-transform:uppercase;font-size:.78rem;font-weight:800}
+    h1{font-size:clamp(3rem,7vw,6rem);font-weight:900;line-height:.98;letter-spacing:-.055em}
+    .gradient-text{background:linear-gradient(90deg,var(--cyan),#8ea4ff 55%,var(--pink));-webkit-background-clip:text;background-clip:text;color:transparent}
+    .lead,.muted{color:var(--muted)}
+    .hero-art,.art-panel{background:linear-gradient(145deg,#142545,#0d1529);border:1px solid #2b4167;border-radius:1.5rem;box-shadow:0 24px 70px #0008}
+    .hero-art{padding:1.2rem;transform:rotate(1deg)}
+    .section-kicker{color:var(--cyan);font-size:.75rem;letter-spacing:.2em;font-weight:800;text-transform:uppercase}
+    .section-title{font-weight:850;letter-spacing:-.035em}
+    .malware-section{padding:5rem 0;border-top:1px solid #24334e}
+    .info-card{height:100%;padding:1.2rem;border-radius:1rem;background:linear-gradient(145deg,#15233d,#0e172b);border:1px solid #293c5d}
+    .info-card h3{font-size:.9rem;text-transform:uppercase;letter-spacing:.12em;color:var(--cyan);font-weight:800}
+    .info-card p{color:#d3def0;margin:0}
+    .scenario{background:#101b31;border-left:3px solid var(--pink);border-radius:.8rem;padding:1.25rem;color:#dbe6f7}
+    .prevention{display:flex;gap:.7rem;align-items:flex-start;margin:.65rem 0;color:#dbe6f7}
+    .check{color:var(--cyan);font-weight:900}
+    .art-panel{padding:1rem;overflow:hidden}
+    .art-panel svg{width:100%;height:auto;display:block}
+    .pill{display:inline-block;border:1px solid #365079;color:#b9c9e6;border-radius:99px;padding:.35rem .7rem;font-size:.75rem}
+    .btn-cyber{background:var(--cyan);color:#06121b;font-weight:800;border:0;border-radius:99px;padding:.8rem 1.2rem}
+    .btn-cyber:hover{background:#a2fff7;color:#06121b}
+    .mini-line{height:1px;background:linear-gradient(90deg,var(--cyan),transparent);margin:1rem 0}
+    footer{border-top:1px solid #24334e;color:#9aabc8;padding:2rem 0}
+    @media(max-width:767px){.hero{min-height:auto;padding:6rem 0 4rem}.malware-section{padding:3.5rem 0}}
+  </style>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark fixed-top">
+  <div class="container">
+    <a class="navbar-brand" href="#home">/ MALWARE LAB</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-controls="mainNav" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto gap-lg-3">
+        <li class="nav-item"><a class="nav-link" href="#virus">Virus</a></li>
+        <li class="nav-item"><a class="nav-link" href="#worm">Worm</a></li>
+        <li class="nav-item"><a class="nav-link" href="#trojan">Trojan horse</a></li>
+        <li class="nav-item"><a class="nav-link" href="#ransomware">Ransomware</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<header class="hero" id="home">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-6">
+        <div class="eyebrow mb-3">Cybersecurity / field guide 01</div>
+        <h1>UNDERSTAND<br><span class="gradient-text">MALWARE.</span></h1>
+        <p class="lead my-4">A quick guide to four common types of malicious software, how they spread, what they can do, and how to stay safer online.</p>
+        <a class="btn btn-cyber" href="#virus">Explore the threats <span aria-hidden="true">↘</span></a>
+        <div class="mt-4 d-flex flex-wrap gap-2"><span class="pill">04 threat types</span><span class="pill">Real-life scenarios</span><span class="pill">Prevention tips</span></div>
+      </div>
+      <div class="col-lg-6">
+        <div class="hero-art">
+          <svg viewBox="0 0 620 440" role="img" aria-label="Cybersecurity illustration with a glowing digital shield">
+            <defs><linearGradient id="shield" x1="0" x2="1" y1="0" y2="1"><stop stop-color="#54f4e8"/><stop offset="1" stop-color="#718cff"/></linearGradient><filter id="glow"><feGaussianBlur stdDeviation="8" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs>
+            <g fill="none" stroke="#34517e" opacity=".65"><path d="M30 90H590M30 140H590M30 190H590M30 240H590M30 290H590M30 340H590"/><path d="M90 35V400M150 35V400M510 35V400M570 35V400"/></g>
+            <circle cx="310" cy="215" r="165" fill="#102342" stroke="#35517b" stroke-width="2"/><circle cx="310" cy="215" r="135" fill="none" stroke="#54f4e8" stroke-dasharray="5 11" opacity=".65"/>
+            <path d="M310 92 414 132v87c0 73-43 118-104 151-61-33-104-78-104-151v-87z" fill="#152d4c" stroke="url(#shield)" stroke-width="7" filter="url(#glow)"/>
+            <path d="m260 218 34 34 68-78" fill="none" stroke="#54f4e8" stroke-width="14" stroke-linecap="round" stroke-linejoin="round"/>
+            <g fill="#ff5ca8"><circle cx="105" cy="100" r="7"/><circle cx="505" cy="310" r="7"/><circle cx="475" cy="90" r="5"/></g>
+            <g stroke="#6b8cff" stroke-width="3" fill="none"><path d="M105 100h70l30 30M505 310h-65l-30-30M475 90h-45l-20 20"/></g>
+            <g fill="#a9b8d2" font-family="monospace" font-size="14"><text x="35" y="75">THREAT DETECTED</text><text x="430" y="345">SYSTEM SAFE</text><text x="45" y="370">01 / 04</text></g>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section class="malware-section" id="virus">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="art-panel">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Illustration of a computer file infected by a digital virus">
+            <defs><linearGradient id="vgrad" x1="0" x2="1"><stop stop-color="#ff5ca8"/><stop offset="1" stop-color="#ffad72"/></linearGradient></defs>
+            <rect x="70" y="55" width="270" height="230" rx="18" fill="#172b49" stroke="#6b8cff" stroke-width="3"/>
+            <path d="M100 55V35h95l25 20" fill="#243e64" stroke="#6b8cff" stroke-width="3"/>
+            <path d="M130 125h145M130 155h105M130 185h125" stroke="#8299bd" stroke-width="9" stroke-linecap="round" opacity=".65"/>
+            <path d="M130 225h80" stroke="#ff5ca8" stroke-width="9" stroke-linecap="round"/>
+            <g transform="translate(350 175)"><circle r="67" fill="#2a193b" stroke="url(#vgrad)" stroke-width="5"/><g stroke="#ff8bbd" stroke-width="8" stroke-linecap="round"><path d="M0-92v25M0 67v25M-92 0h25M67 0h25M-65-65l18 18M47 47l18 18M65-65 47-47M-47 47l-18 18"/></g><circle r="39" fill="url(#vgrad)"/><circle cx="-13" cy="-8" r="6" fill="#321b3d"/><circle cx="14" cy="-8" r="6" fill="#321b3d"/><path d="M-15 14q15 16 30 0" stroke="#321b3d" stroke-width="6" fill="none" stroke-linecap="round"/></g>
+            <text x="75" y="325" fill="#a9b8d2" font-size="14" font-family="monospace">INFECTED FILE / EXECUTION REQUIRED</text>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-kicker">01 / File infection</div><h2 class="section-title display-4 mt-2">Virus</h2>
+        <p class="lead">A malicious program that attaches itself to legitimate files and needs the infected file to be opened or run to spread.</p>
+        <div class="row g-3 my-3">
+          <div class="col-md-6"><div class="info-card"><h3>How it spreads</h3><p>It relies on human actions. It attaches to an executable file or document and can be passed along when someone shares, opens, or runs that infected file.</p></div></div>
+          <div class="col-md-6"><div class="info-card"><h3>Effects</h3><p>It can corrupt, modify, or permanently delete files.</p></div></div>
+        </div>
+        <div class="scenario"><strong class="text-white">Real-life scenario</strong><p class="mb-0 mt-2">Tom downloads a free game skin from a random forum as an .exe file. After he runs it, a virus secretly affects his school essays and family photos, leaving some files unable to open.</p></div>
+        <div class="mt-3"><h3 class="h6 text-uppercase fw-bold">Prevention</h3><div class="prevention"><span class="check">✓</span>Avoid suspicious downloads.</div><div class="prevention"><span class="check">✓</span>Check the file extension before opening it.</div><div class="prevention"><span class="check">✓</span>Keep antivirus protection active and updated.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="malware-section" id="worm">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 order-2 order-lg-1">
+        <div class="section-kicker">02 / Self-replicating network threat</div><h2 class="section-title display-4 mt-2">Worm</h2>
+        <p class="lead">A self-replicating type of malware that travels independently across networks without needing a host file or human interaction.</p>
+        <div class="row g-3 my-3">
+          <div class="col-md-6"><div class="info-card"><h3>How it spreads</h3><p>It moves automatically across networks. It can exploit software bugs or security gaps to copy itself from one connected machine to another.</p></div></div>
+          <div class="col-md-6"><div class="info-card"><h3>Effects</h3><p>It can congest network bandwidth and drain system memory.</p></div></div>
+        </div>
+        <div class="scenario"><strong class="text-white">Real-life scenario</strong><p class="mb-0 mt-2">Tom uses a shared school computer to print a report. A worm copies itself onto his USB drive. When he connects it to his home PC, it spreads to that computer and may try to reach other devices on the home network.</p></div>
+        <div class="mt-3"><h3 class="h6 text-uppercase fw-bold">Prevention</h3><div class="prevention"><span class="check">✓</span>Restart your computer if instructed by trusted IT support.</div><div class="prevention"><span class="check">✓</span>Enable your firewall.</div><div class="prevention"><span class="check">✓</span>Turn on automatic software updates.</div></div>
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2">
+        <div class="art-panel">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Illustration of a worm moving between connected computers">
+            <g fill="none" stroke="#54f4e8" stroke-width="4" opacity=".8"><path d="M140 135 255 85 380 135M140 135 255 270 380 135M255 85v185"/></g>
+            <g fill="#172b49" stroke="#6b8cff" stroke-width="3"><rect x="70" y="85" width="140" height="105" rx="12"/><rect x="190" y="30" width="140" height="105" rx="12"/><rect x="310" y="85" width="140" height="105" rx="12"/><rect x="190" y="220" width="140" height="105" rx="12"/></g>
+            <g fill="#54f4e8"><rect x="88" y="104" width="104" height="58" rx="5"/><rect x="208" y="49" width="104" height="58" rx="5"/><rect x="328" y="104" width="104" height="58" rx="5"/><rect x="208" y="239" width="104" height="58" rx="5"/></g>
+            <g fill="#10213a"><path d="M125 190v12h30v-12M245 135v12h30v-12M365 190v12h30v-12M245 325v10h30v-10"/></g>
+            <path d="M160 245c-25-40 25-55 44-30s-8 45 18 48 35-35 54-21 2 38 29 32" fill="none" stroke="#ff5ca8" stroke-width="11" stroke-linecap="round"/>
+            <g fill="#ff5ca8"><circle cx="160" cy="245" r="8"/><circle cx="305" cy="274" r="8"/></g>
+            <text x="25" y="350" fill="#a9b8d2" font-size="14" font-family="monospace">ONE DEVICE → MANY DEVICES</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="malware-section" id="trojan">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5">
+        <div class="art-panel">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Illustration of a harmless-looking software gift hiding a Trojan threat">
+            <path d="M110 115h300v190H110z" fill="#172b49" stroke="#6b8cff" stroke-width="3"/><path d="M90 115h340v55H90z" fill="#233e63" stroke="#6b8cff" stroke-width="3"/><path d="M260 115v190M90 170h340" stroke="#6b8cff" stroke-width="3"/>
+            <path d="M260 115c-60-8-78-42-45-58 35-17 60 23 45 58Zm0 0c60-8 78-42 45-58-35-17-60 23-45 58Z" fill="#ff5ca8" stroke="#ff9cc7" stroke-width="3"/>
+            <path d="M210 205h100v70H210z" rx="8" fill="#54f4e8"/><path d="M230 228h60M230 245h42" stroke="#10213a" stroke-width="7" stroke-linecap="round"/>
+            <path d="M330 220q45-65 90-4" stroke="#ff5ca8" stroke-width="8" fill="none" stroke-linecap="round"/><path d="m406 203 16 13-20 8" fill="none" stroke="#ff5ca8" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+            <text x="110" y="340" fill="#a9b8d2" font-size="14" font-family="monospace">A GIFT THAT ISN'T WHAT IT SEEMS</text>
+          </svg>
+        </div>
+      </div>
+      <div class="col-lg-7">
+        <div class="section-kicker">03 / Disguised software</div><h2 class="section-title display-4 mt-2">Trojan horse</h2>
+        <p class="lead">A harmful program disguised as legitimate, useful software. It tricks users into running it so it can compromise security.</p>
+        <div class="row g-3 my-3">
+          <div class="col-md-6"><div class="info-card"><h3>How it spreads</h3><p>It uses social engineering. It does not self-replicate; instead, it tricks people into downloading and installing it by pretending to be a useful program, media file, or system update.</p></div></div>
+          <div class="col-md-6"><div class="info-card"><h3>Effects</h3><p>It can create backdoors for attackers and steal sensitive data.</p></div></div>
+        </div>
+        <div class="scenario"><strong class="text-white">Real-life scenario</strong><p class="mb-0 mt-2">Tom downloads a free cheat tool for a PC game from a website. The tool appears to work, but a hidden Trojan horse is also running malicious activity in the background.</p></div>
+        <div class="mt-3"><h3 class="h6 text-uppercase fw-bold">Prevention</h3><div class="prevention"><span class="check">✓</span>Download software from official stores and websites.</div><div class="prevention"><span class="check">✓</span>Avoid offers that seem too good to be true.</div><div class="prevention"><span class="check">✓</span>Check carefully before opening or installing a file.</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="malware-section" id="ransomware">
+  <div class="container">
+    <div class="row align-items-center g-5">
+      <div class="col-lg-7 order-2 order-lg-1">
+        <div class="section-kicker">04 / Data held hostage</div><h2 class="section-title display-4 mt-2">Ransomware</h2>
+        <p class="lead">Malware designed to deny access to a computer system or data until money is demanded.</p>
+        <div class="row g-3 my-3">
+          <div class="col-md-6"><div class="info-card"><h3>How it spreads</h3><p>It often spreads through social engineering. A person may be tricked into downloading something disguised as a game, video, or important update.</p></div></div>
+          <div class="col-md-6"><div class="info-card"><h3>Effects</h3><p>It can lock or encrypt files so they cannot be opened, then display a demand for payment to restore access.</p></div></div>
+        </div>
+        <div class="scenario"><strong class="text-white">Real-life scenario</strong><p class="mb-0 mt-2">Tom downloads a game cheat tool that seems to work. Hidden ransomware then locks his school projects and photos, and a message demands $500 to get the files back.</p></div>
+        <div class="mt-3"><h3 class="h6 text-uppercase fw-bold">Prevention</h3><div class="prevention"><span class="check">✓</span>Keep your operating system and apps updated.</div><div class="prevention"><span class="check">✓</span>Back up important files regularly.</div><div class="prevention"><span class="check">✓</span>Avoid opening suspicious links or attachments.</div></div>
+      </div>
+      <div class="col-lg-5 order-1 order-lg-2">
+        <div class="art-panel">
+          <svg viewBox="0 0 520 360" role="img" aria-label="Illustration of locked digital files and a warning screen">
+            <rect x="65" y="48" width="390" height="265" rx="18" fill="#172b49" stroke="#6b8cff" stroke-width="3"/>
+            <path d="M65 88h390" stroke="#6b8cff" stroke-width="3"/><circle cx="92" cy="68" r="7" fill="#ff5ca8"/><circle cx="116" cy="68" r="7" fill="#ffc46b"/><circle cx="140" cy="68" r="7" fill="#54f4e8"/>
+            <g transform="translate(260 190)"><rect x="-57" y="-5" width="114" height="84" rx="13" fill="#ff5ca8"/><path d="M-35-5v-25a35 35 0 0 1 70 0v25" fill="none" stroke="#ff9cc7" stroke-width="12"/><circle cy="28" r="9" fill="#35152d"/><path d="M0 37v17" stroke="#35152d" stroke-width="8" stroke-linecap="round"/></g>
+            <g fill="#a9b8d2" font-family="monospace" font-size="14"><text x="95" y="120">FILES LOCKED</text><text x="95" y="145">ACCESS RESTRICTED</text><text x="95" y="285">RECOVERY REQUIRED</text></g>
+            <path d="M105 170h65M350 170h65M105 190h45M370 190h45" stroke="#6b8cff" stroke-width="7" stroke-linecap="round"/>
+            <text x="25" y="345" fill="#a9b8d2" font-size="14" font-family="monospace">BACKUPS HELP PROTECT YOUR DATA</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-5">
+  <div class="container text-center py-4">
+    <div class="section-kicker">Stay alert / stay protected</div>
+    <h2 class="display-4 section-title mt-2">Think before<br><span class="gradient-text">you click.</span></h2>
+    <p class="lead mx-auto mt-3" style="max-width:650px">Use trusted downloads, keep your devices updated, enable security tools, and back up important files. Small habits can make a big difference.</p>
+    <div class="mini-line mx-auto" style="max-width:220px"></div>
+    <p class="fw-bold mb-0">THANK YOU FOR WATCHING</p>
+    <span class="muted small">Malware awareness / Cybersecurity guide</span>
+  </div>
+</section>
+</main>
+<footer><div class="container d-flex flex-column flex-md-row justify-content-between gap-2"><span>© Malware Awareness</span><span>Learn the risks. Build safer digital habits.</span></div></footer>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
